@@ -1,0 +1,8 @@
+.content{
+    width: 83%;
+    height: 90vh;
+    /* border: 1px solid red; */
+    position: absolute;
+    right: 0px;
+    padding: 10px 10px 10px 6px ;
+}

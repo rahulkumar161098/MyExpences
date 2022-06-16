@@ -1,0 +1,75 @@
+{% extends 'authentication/auth_base.html' %}
+
+{% block style %}
+     <link rel="stylesheet" href="../../static/css/auth_style/login.css">
+{% endblock %}
+
+{% block main %}
+
+{% if messages %}
+<div class="alert alert-warning" role="alert">
+    {% for message in messages %}
+    {{ message }}
+    {% endfor %}
+</div>
+{% endif %}
+
+<!-- <div class="alert alert-info" role="alert">
+    This is a info alert—check it out!
+  </div> -->
+
+<div class="contain" style="height: max-content;">
+    <form action="" method="post" onsubmit="return onSubmitForm()">
+        {% csrf_token %}
+        <h3>Sign In</h3>
+        <div class="user_field">
+            <label for="name">User name</label>
+            <input type="text" name="username" class="user_input" id="user_name">
+            <span id="username_error"></span>
+        </div>
+       
+        <div class="user_field">
+            <label for="name">Password</label>
+            <input type="password" name="password" class="user_input" id="user_password">
+            <span id="password_error"></span>
+        </div>
+        <div class="some_link" style="margin-top: 10px;">
+            <a href="#">create an account</a>
+        </div>
+        <div class="btn">
+            <input type="submit" class="submit_btn" value="Login">
+        </div>
+    </form>
+</div>
+
+<script>
+    let u_name= document.getElementById('user_name');
+    let u_pass= document.getElementById('user_password')
+    flag=1
+    function onSubmitForm(){
+        if(u_name.value== ''){
+            document.getElementById('username_error').innerHTML='Field is required*';
+            flag=0
+            // window.URL('login/')
+        }else{
+            document.getElementById('username_error').innerHTML='';
+            flag=1
+        };
+        if(u_pass.value== ''){
+            document.getElementById('password_error').innerHTML='Field is required*';
+            flag=0
+        }else{
+            document.getElementById('username_error').innerHTML='';
+            flag=1
+        };
+
+        if(flag){
+            return true
+        }else{
+            return false
+        }
+    }
+</script>
+
+
+{% endblock %}

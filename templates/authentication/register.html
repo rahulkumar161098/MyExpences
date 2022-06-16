@@ -1,0 +1,120 @@
+{% extends 'authentication/auth_base.html' %}
+
+{% block style %}
+     <link rel="stylesheet" href="../../static/css/auth_style/register.css">
+{% endblock %}
+
+{% block main %}
+
+{% if messages %}
+<div class="alert alert-warning" role="alert">
+    {% for message in messages %}
+    {{ message }}
+    {% endfor %}
+</div>
+{% endif %}
+
+<div class="contain">
+    <form action="" method="post" onsubmit="return onSubmitForm()">
+        {% csrf_token %}
+        <h3>Sign Up</h3>
+        <div class="user_field">
+            <label for="name">First name</label>
+            <input type="text" 
+            name="fname" 
+            value="{{ name }}" 
+            class="user_input" 
+            id="f_name">
+            <span id="fname_error" class="errors"></span>
+        </div>
+        <div class="user_field">
+            <label for="name">Last name</label>
+            <input type="text" 
+            name="lname" 
+            value="{{ subtitle }}" 
+            class="user_input" 
+            id="l_name">
+            <span id="lname_error" class="errors"></span>
+        </div>
+        <!-- <div class="user_field">
+            <label for="name">User name</label>
+            <input type="text" class="user_input" id="user_name">
+            <span id="username_error"></span>
+        </div> -->
+        <div class="user_field">
+            <label for="name">Email</label>
+            <input type="email" 
+            name="email" 
+            class="user_input" 
+            id="user_email">
+            <span id="email_error" class="errors"></span>
+        </div>
+        <!-- <div class="user_field">
+            <label for="name">Mobile</label>
+            <input type="text" class="user_input" id="user_mobile">
+            <span id="mobile_error"></span>
+        </div> -->
+        <div class="user_field">
+            <label for="name">Password</label>
+            <input type="password" 
+            name="password" 
+            class="user_input" 
+            id="user_password">
+            <span id="password_error" class="errors"></span>
+        </div>
+        <div class="some_link">
+            <a href="#">already have account</a>
+        </div>
+        <div class="btn">
+            <input type="submit" class="submit_btn" value="Register">
+        </div>
+    </form>
+</div>
+
+<script>
+
+    let fname= document.getElementById('f_name')
+    let lname= document.getElementById('l_name')
+    let email= document.getElementById('user_email')
+    let user_pass= document.getElementById('user_password')
+    flag=1;
+
+    function onSubmitForm(){
+        if(fname.value ==''){
+            document.getElementById('fname_error').innerHTML="Field is required*"
+            flag=0
+        }else{
+            document.getElementById('fname_error').innerHTML=""
+            flag=1
+        };
+        if(lname.value ==''){
+            document.getElementById('lname_error').innerHTML="Field is required*"
+            flag=0
+        }else{
+            document.getElementById('lname_error').innerHTML=""
+            flag=1
+        };
+        if(email.value ==''){
+            document.getElementById('email_error').innerHTML="Field is required*"
+            flag=0
+        }else{
+            document.getElementById('email_error').innerHTML=""
+            flag=1
+        };
+        if(user_pass.value ==''){
+            document.getElementById('password_error').innerHTML="Field is required*"
+            flag=0
+        }else{
+            document.getElementById('password_error').innerHTML=""
+            flag=1
+        };
+
+        if(flag){
+            return true
+        }else{
+            return false
+        }
+    }
+</script>
+
+{% endblock %}

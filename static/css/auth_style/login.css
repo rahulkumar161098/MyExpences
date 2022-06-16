@@ -1,0 +1,66 @@
+.contain{
+    width: 350px;
+    height: 300px;
+    padding: 15px 15px;
+    border: 2px solid rgba(1, 75, 75, .6);
+    border-top: none;
+    margin: 0 auto;
+    margin-top: 60px;
+    border-radius: 10px;
+    box-shadow: black(10px);
+    /* text-align: center; */
+    box-shadow: rgba(1, 75, 75, 0.4) -5px 5px, rgba(1, 75, 75, 0.3) -10px 10px, rgba(1, 75, 75, 0.2) -15px 15px, rgba(1, 75, 75, 0.1) -20px 20px, rgba(1, 75, 75, 0.05) -25px 25px;
+}
+h3{
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 30px;
+    color: #008080;
+    margin-top: -36px;
+    /* background-color: white; */
+    background: none;
+
+}
+label{
+    color: rgb(5, 46, 46);
+    font-size: 16px;
+}
+.user_field{
+    margin: 0 auto;
+    /* border: 1px solid teal; */
+    /* height: 30px; */
+    margin: 10px 0px;
+}
+.user_input{
+    width: 93%;
+    margin: -7px 0px 8px 0px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid teal;
+
+}
+.some_link{
+    margin: -14px 0px 10px 0px;
+}
+.btn{
+    margin: 0 auto;
+    /* border: 1px solid teal; */
+    /* margin-top: 6px; */
+    margin-bottom: 10px;
+}
+.submit_btn{
+    width: 100%;
+    padding: 8px 100px;
+    border-radius: 8px;
+    border: none;
+    background-color: teal;
+    font-size: 16px;
+    letter-spacing: 2px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+span{
+    color: tomato;
+    font-size: 13px;
+}
