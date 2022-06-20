@@ -17,3 +17,8 @@
 .close{
     line-height: 0px !important;
 }
+.all_expences h6{
+    color: teal;
+    font-weight: 600;
+    letter-spacing: 1px;
+}

@@ -8,12 +8,14 @@
     <ul class="messages">
         {% for message in messages %}
         <div class="alert alert-success alert-dismissible fade show message" role="alert">
-           {{ message }}
+            {% if message.tags %}
+            {{ message }}
+            {% endif %}
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
-            {% endfor %}
+        {% endfor %}
     </ul>
     {% endif %}
 
@@ -78,6 +80,66 @@
                 </form>
 
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="all_expences">
+    <h6>All Expences</h6>
+
+    {% if expence_user_data.count %}
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <!-- <th scope="col">S.no</th> -->
+                <th scope="col">Amount</th>
+                <th scope="col">Category</th>
+                <th scope="col">Date</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in page_obj %}
+            <tr>
+                <!-- <th scope="row">{{ forloop.counter }}</th> -->
+                <td>{{ data.amount }}</td>
+                <td>{{ data.category }}</td>
+                <td>{{ data.date }}</td>
+                <td>
+                    <a href="{% url 'edit_expense' data.id %}">Edit</a>
+                    <!-- <a href="{% url 'delete_expense' data.id %}" onclick="return confirm ('Are you sure?')"" > delete</a> -->
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+</div>
+
+<div class="paginator" style="display: flex; justify-content: space-between;">
+    <div>
+        <span>
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+        </span>
+    </div>
+    <div>
+        <div class="pagination">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <!-- <a href="?page=1">&laquo; first</a> -->
+                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+                
+                <span class="current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">next</a>
+                    <!-- <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a> -->
+                {% endif %}
+            </span>
         </div>
     </div>
 </div>
