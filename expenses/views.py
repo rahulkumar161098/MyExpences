@@ -3,6 +3,7 @@ from django.shortcuts import redirect, render
 from expenses.models import AddExpence
 from django.contrib import messages
 from django.core.paginator import Paginator
+import datetime
 
 # Create your views here.
 def dashboard(request):
@@ -13,9 +14,15 @@ def base_page(request):
 
 def addExpence(request):
     current_user= request.user
-    expence_data= AddExpence.objects.filter(owner=current_user)
+    expence_data= AddExpence.objects.filter(owner=current_user).order_by('-date')
+    # use of value_list()
+    # some_data= AddExpence.objects.values_list('id', 'amount', 'category')
+    # print(some_data)
+    # use of value()
+    value_data= AddExpence.objects.values()
+    # print(value_data)
 
-    paginator= Paginator(expence_data, 2)
+    paginator= Paginator(expence_data, 5)
     page_number= request.GET.get('page')
     page_obj = Paginator.get_page(paginator, page_number)
     print(page_obj)
@@ -25,12 +32,12 @@ def addExpence(request):
     }
 
     if request.method== 'POST':
-        amount= request.POST['amount']
+        exp_amount= request.POST['add_amount']
         des= request.POST['des']
         exp_category= request.POST['expence_category']
         date= request.POST['date']
         try:
-            add_expence= AddExpence(amount=amount, date=date, description=des, owner=current_user, category=exp_category)
+            add_expence= AddExpence(amount=exp_amount, date=date, description=des, owner=current_user, category=exp_category)
             add_expence.save()
             messages.info(request,'Your expence is added successfully')
             return redirect('add_expences')
@@ -45,7 +52,7 @@ def edit_expense(request, pk):
         return redirect ('user_log')
     edit_expense= AddExpence.objects.get(id=pk)
     if request.method== 'POST':
-        amount= request.POST['amount']
+        amount= request.POST['edit_amount']
         des= request.POST['des']
         exp_category= request.POST['expence_category']
         date= request.POST['date']

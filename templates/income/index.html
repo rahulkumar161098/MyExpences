@@ -1,0 +1,128 @@
+{% extends 'bash.html' %}
+
+{% block content %}
+
+<div class="row">
+
+  {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <div class="alert alert-success alert-dismissible fade show message" role="alert">
+            {% if message.tags %}
+            {{ message }}
+            {% endif %}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+
+
+  <!-- Button trigger modal -->
+  <div class="col-md-10">
+    <nav aria-label="breadcrumb" class="nav_navigarion">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Income</a></li>
+        <li class="breadcrumb-item">My Income</< /li>
+      </ol>
+    </nav>
+  </div>
+  <div class="col-md-2">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+      Add Income
+    </button>
+  </div>
+  <hr>
+</div>
+
+<!-- Modal -->
+
+<div class="all_expences">
+  <h6>All Incomes</h6>
+
+</div>
+<!-- table -->
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Amount</th>
+      <th scope="col">Source</th>
+      <th scope="col">Description</th>
+      <th scope="col">Date</th>
+      <th scope="col">Edit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+      <td><a href="{% url 'edit_income' %}">Edit</a></td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+<div class="paginator" style="display: flex; justify-content: space-between;">
+  <div>
+    <span>
+      Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+    </span>
+  </div>
+  <div>
+  </div>
+</div>
+
+<!-- modal -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Your Income</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="{% url 'user_income_index' %}" method="post">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="exampleInputEmail1">Income Amount</label>
+            <input type="text" name="income_amount" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Description</label>
+            <input type="text" name="income_des" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Income Source</label>
+            <select name="income_source" class="form-select" id="inputGroupSelect04"
+              aria-label="Example select with button addon">
+              <option selected value="foods">Job</option>
+              <option value="rent">Part Time Job</option>
+              <option value="travel">Blogging</option>
+              <option value="other">Others</option>
+
+            </select>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Date</label>
+              <input type="date" name="date" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Add</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

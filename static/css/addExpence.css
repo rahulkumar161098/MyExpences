@@ -22,3 +22,30 @@
     font-weight: 600;
     letter-spacing: 1px;
 }
+
+
+/* serach area */
+.search_area{
+    width: 250px;
+    border: none;
+    height: 30px;
+    border-radius: 10px;
+    border: 2px solid teal;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+}
+.search_area:hover{
+    border: 2px solid teal !important;
+}
+.search_btn{
+    padding: 4px 15px;
+    background-color: teal;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    /* margin-bottom: -16px; */
+    /* margin-top: 0px 0px 5px 0px; */
+    margin-top: -10px;
+}

@@ -24,14 +24,14 @@
     <div class="col-md-10">
         <nav aria-label="breadcrumb" class="nav_navigarion">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">Expence</a></li>
-                <li class="breadcrumb-item"><a href="{% url 'add_expences' %}"> My Expence</a></li>
-                <li class="breadcrumb-item">Edit My Expence</li>
+                <li class="breadcrumb-item"><a href="#">Income</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'user_income_index' %}"> My Income</a></li>
+                <li class="breadcrumb-item">Edit My Income</li>
             </ol>
         </nav>
     </div>
     <div class="col-sm-2">
-        <a href="{% url 'delete_expense' edit_expense.id %}" class="btn btn-danger" onclick="return confirm ('Are you sure?')"" > delete</a>
+        <!-- delete button -->
     </div>
 </div>
 <hr>
@@ -39,30 +39,30 @@
     <form method="post">
         {% csrf_token %}
         <div class="form-group">
-            <label for="exampleInputEmail1">Expence Amount</label>
-            <input type="text" name="edit_amount" value="{{ edit_expense.amount }}" class="form-control" required>
+            <label for="exampleInputEmail1">Income Amount</label>
+            <input type="text" name="amount"  class="form-control" required>
         </div>
         <div class="form-group">
             <label for="exampleInputEmail1">Description</label>
-            <input type="text" name="des" value="{{ edit_expense.description }}" class="form-control" required>
+            <input type="text" name="des"  class="form-control" required>
         </div>
         <div class="form-group">
-            <label for="exampleInputEmail1">Expence Category</label>
-            <select name="expence_category" value="{{ edit_expense.category }}" class="form-select"
+            <label for="exampleInputEmail1">Expence Source</label>
+            <select name="expence_category" class="form-select"
                 id="inputGroupSelect04" aria-label="Example select with button addon">
-                <option>{{ edit_expense.category }}</option>
-                <option value="Foods">Foods</option>
-                <option value="Rent">Rent</option>
+                <option>job</option>
+                <option value="Foods">Other</option>
+                <!-- <option value="Rent">Rent</option>
                 <option value="Travel">Travels</option>
                 <option value="EMI">EMI</option>
-                <option value="Other">Other</option>
+                <option value="Other">Other</option> -->
 
             </select><br>
             <div class="form-group">
                 <label for="exampleInputEmail1">Date</label>
-                <input type="date" value="{{ edit_expense.date }}" name="date" class="form-control" required>
+                <input type="date" name="date" class="form-control" required>
             </div>
-            <button type="submit" class="btn btn-primary">Add</button>
+            <button type="submit" class="btn btn-primary">Update</button>
         </div>
     </form>
 </div>

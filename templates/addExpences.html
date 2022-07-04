@@ -54,7 +54,7 @@
                     {% csrf_token %}
                     <div class="form-group">
                         <label for="exampleInputEmail1">Expence Amount</label>
-                        <input type="text" name="amount" class="form-control" required>
+                        <input type="text" name="add_amount" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Description</label>
@@ -68,7 +68,8 @@
                             <option value="rent">Rent</option>
                             <option value="travel">Travels</option>
                             <option value="emi">EMI</option>
-                            <option value="other">Other</option>
+                            <option value="emi">Shopping</option>
+                            <option value="other">Others</option>
 
                         </select>
                         <div class="form-group">
@@ -85,7 +86,16 @@
 </div>
 
 <div class="all_expences">
-    <h6>All Expences</h6>
+    <div class="row">
+        <h6 class="col-md-8">All Expences</h6>
+        <div class="col-md-4">
+            <form method="POST">
+                {% csrf_token %}
+                <input type="search" class="search_area" name="search_input">
+                <input type="submit" class="search_btn" value="Search" ></inpu>
+            </form>
+        </div>
+    </div>
 
     {% if expence_user_data.count %}
 
@@ -95,6 +105,7 @@
                 <!-- <th scope="col">S.no</th> -->
                 <th scope="col">Amount</th>
                 <th scope="col">Category</th>
+                <th>Description</th>
                 <th scope="col">Date</th>
                 <th scope="col">Action</th>
             </tr>
@@ -105,7 +116,11 @@
                 <!-- <th scope="row">{{ forloop.counter }}</th> -->
                 <td>{{ data.amount }}</td>
                 <td>{{ data.category }}</td>
+                <td>
+                    <div>{{ data.description }}</div>
+                </td>
                 <td>{{ data.date }}</td>
+
                 <td>
                     <a href="{% url 'edit_expense' data.id %}">Edit</a>
                     <!-- <a href="{% url 'delete_expense' data.id %}" onclick="return confirm ('Are you sure?')"" > delete</a> -->
@@ -127,17 +142,17 @@
         <div class="pagination">
             <span class="step-links">
                 {% if page_obj.has_previous %}
-                    <!-- <a href="?page=1">&laquo; first</a> -->
-                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                <!-- <a href="?page=1">&laquo; first</a> -->
+                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
                 {% endif %}
-                
+
                 <span class="current">
                     Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
                 </span>
 
                 {% if page_obj.has_next %}
-                    <a href="?page={{ page_obj.next_page_number }}">next</a>
-                    <!-- <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a> -->
+                <a href="?page={{ page_obj.next_page_number }}">next</a>
+                <!-- <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a> -->
                 {% endif %}
             </span>
         </div>
