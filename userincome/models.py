@@ -5,9 +5,9 @@ from django.contrib.auth.models import User
 class AddIncome(models.Model):
     income_amount= models.FloatField()
     date= models.DateTimeField(auto_now=True)
-    description= models.TextField()
+    income_desc= models.TextField()
     owner= models.ForeignKey(to=User, on_delete=models.CASCADE)
-    source= models.CharField(max_length=255)
+    income_source= models.CharField(max_length=255)
 
     def __str__(self):
         return self.source

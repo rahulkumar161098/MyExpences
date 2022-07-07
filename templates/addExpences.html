@@ -68,7 +68,7 @@
                             <option value="rent">Rent</option>
                             <option value="travel">Travels</option>
                             <option value="emi">EMI</option>
-                            <option value="emi">Shopping</option>
+                            <option value="shopping">Shopping</option>
                             <option value="other">Others</option>
 
                         </select>
@@ -88,13 +88,13 @@
 <div class="all_expences">
     <div class="row">
         <h6 class="col-md-8">All Expences</h6>
-        <div class="col-md-4">
+        <!-- <div class="col-md-4">
             <form method="POST">
                 {% csrf_token %}
                 <input type="search" class="search_area" name="search_input">
                 <input type="submit" class="search_btn" value="Search" ></inpu>
             </form>
-        </div>
+        </div> -->
     </div>
 
     {% if expence_user_data.count %}
@@ -116,9 +116,7 @@
                 <!-- <th scope="row">{{ forloop.counter }}</th> -->
                 <td>{{ data.amount }}</td>
                 <td>{{ data.category }}</td>
-                <td>
-                    <div>{{ data.description }}</div>
-                </td>
+                <td>{{ data.description }}</td>
                 <td>{{ data.date }}</td>
 
                 <td>

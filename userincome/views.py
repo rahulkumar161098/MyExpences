@@ -1,9 +1,13 @@
+from email import message
 from django.shortcuts import render, redirect
 from userincome.models import AddIncome
 from django.contrib import messages
+from django.core.paginator import Paginator
 
 # add income
 def income_index(request):
+  if not request.user.is_authenticated:
+        return redirect ('user_log')
   current_user= request.user
   print(current_user)
   if request.method== 'POST':
@@ -12,7 +16,7 @@ def income_index(request):
     income_source= request.POST['income_source']
     date= request.POST['date']
     try:
-      add_income= AddIncome(income_amount=in_amount, date=date, description=des, owner=current_user, source=income_source)
+      add_income= AddIncome(income_amount=in_amount, date=date, income_desc=des, owner=current_user, income_source=income_source)
       add_income.save()
       messages.info(request,'Your income is added successfully')
       return redirect('my_income')
@@ -22,10 +26,50 @@ def income_index(request):
 
   # getting income data
   income_data= AddIncome.objects.filter(owner=current_user)
-  print('income data..................', income_data)
+  # print('income data..................', income_data)
+  user_income={
+    'income_data': income_data
+  }
+  # pagination
+  paginator= Paginator(income_data, 2)
+  page_number= request.GET.get('page')
+  page_obj = Paginator.get_page(paginator, page_number)
+  print(page_obj)
 
-  return render(request, 'income/index.html')
+  return render(request, 'income/index.html', user_income)
 
 # income edit
-def income_edit(request):
-  return render(request, 'income/edit_incomes.html')
+def income_edit(request, id):
+  if not request.user.is_authenticated:
+    return redirect ('user_log')
+  edit_user_income= AddIncome.objects.get(id=id)
+  if request.method=='POST':
+    income= request.POST['amount']
+    in_desc= request.POST['des']
+    in_source= request.POST['income_source']
+    in_date= request.POST['date']
+
+    edit_user_income.income_amount= income
+    edit_user_income.income_desc= in_desc
+    edit_user_income.income_source= in_source
+    edit_user_income.date= in_date
+    try:
+      edit_user_income.save()
+      messages.info(request, "Income Update Successfully!")
+      return redirect('user_income_index')
+    except:
+      messages.info(request, "Something went wrong!")
+      return render(request, 'income/edit_incomes.html')
+
+
+  edit_income={
+    'edit_user_income': edit_user_income
+  }
+  return render(request, 'income/edit_incomes.html', edit_income)
+
+def del_income(request, id):
+  if not request.user.is_authenticated:
+    return redirect ('user_log')
+  income_del= AddIncome.objects.get(id=id)
+  income_del.delete()
+  return redirect ('user_income_index')

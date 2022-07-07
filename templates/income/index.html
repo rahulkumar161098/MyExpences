@@ -5,19 +5,19 @@
 <div class="row">
 
   {% if messages %}
-    <ul class="messages">
-        {% for message in messages %}
-        <div class="alert alert-success alert-dismissible fade show message" role="alert">
-            {% if message.tags %}
-            {{ message }}
-            {% endif %}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        {% endfor %}
-    </ul>
-    {% endif %}
+  <ul class="messages">
+    {% for message in messages %}
+    <div class="alert alert-success alert-dismissible fade show message" role="alert">
+      {% if message.tags %}
+      {{ message }}
+      {% endif %}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endfor %}
+  </ul>
+  {% endif %}
 
 
 
@@ -57,18 +57,19 @@
     </tr>
   </thead>
   <tbody>
+    {% for income in income_data %}
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td><a href="{% url 'edit_income' %}">Edit</a></td>
+      <td>{{income.income_amount}}</td>
+      <td>{{income.income_source}}</td>
+      <td>{{income.income_desc}}</td>
+      <td>{{income.date}}</td>
+      <td><a href="{% url 'edit_income' income.id %}">Edit</a></td>
     </tr>
+    {% endfor %}
   </tbody>
 </table>
 
-</div>
-
+<!-- paginator -->
 <div class="paginator" style="display: flex; justify-content: space-between;">
   <div>
     <span>
@@ -76,8 +77,28 @@
     </span>
   </div>
   <div>
+    <div class="pagination">
+      <span class="step-links">
+        {% if page_obj.has_previous %}
+        <!-- <a href="?page=1">&laquo; first</a> -->
+        <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+          Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">next</a>
+        <!-- <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a> -->
+        {% endif %}
+      </span>
+    </div>
   </div>
 </div>
+</div>
+
+
 
 <!-- modal -->
 
@@ -107,8 +128,8 @@
             <select name="income_source" class="form-select" id="inputGroupSelect04"
               aria-label="Example select with button addon">
               <option selected value="foods">Job</option>
-              <option value="rent">Part Time Job</option>
-              <option value="travel">Blogging</option>
+              <option value="part time job">Part Time Job</option>
+              <option value="blogging">Blogging</option>
               <option value="other">Others</option>
 
             </select>
@@ -119,10 +140,12 @@
             <button type="submit" class="btn btn-primary">Add</button>
           </div>
         </form>
-
       </div>
     </div>
   </div>
 </div>
+
+<!-- pagination -->
+
 
 {% endblock %}

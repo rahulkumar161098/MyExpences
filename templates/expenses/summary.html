@@ -1,0 +1,72 @@
+{% extends 'bash.html' %}
+{% load static %}
+
+{% block content %}
+<section style="margin: 10px 20px;">
+
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="expence_summary_card">
+        <div class="card_heading">
+          <i class="fa fa-line-chart" aria-hidden="true"></i>
+          Total Expenses
+        </div>
+        <div class="card_amount">
+          <i class="fa fa-at" aria-hidden="true"></i>
+          {{total_user_expenses}}
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="expence_summary_card">
+        <div class="card_heading">
+          <i class="fa fa-line-chart" aria-hidden="true"></i>
+          Previous Month
+        </div>
+        <div class="card_amount">
+          <i class="fa fa-at" aria-hidden="true"></i>
+          {{one_month_total_summary}}
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="expence_summary_card">
+        <div class="card_heading">
+          <i class="fa fa-line-chart" aria-hidden="true"></i>
+          Other Expenses
+        </div>
+        <div class="card_amount">
+          <i class="fa fa-at" aria-hidden="true"></i>
+          {{total_other_expenses}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class=" row total_expence_chart">
+    <div class="col-md-6">
+      <div class="graph_box">
+        <p class="chart_header">Last Six Months Expenses</p>
+        <canvas id="myChart" width="500px" class="graph" height="250px" aria-level="chart" role="img">
+        </canvas>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="graph_box">
+        <p class="chart_header">Previous Month Expenses</p>
+        <canvas id="oneMonthChart" width="500px" class="graph" height="266px" aria-level="chart1" role="img">
+        </canvas>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+
+{% endblock %}
