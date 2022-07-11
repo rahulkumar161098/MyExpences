@@ -1,0 +1,80 @@
+{% extends 'bash.html' %}
+
+{% block content %}
+<section style="margin: 10px 20px;">
+  <h5 style="color: teal; font-weight: 650;">Your Income Summary</h5>
+  <hr>
+  
+    <div class="row">
+      <div class="col-md-4">
+        <div class="expence_summary_card">
+          <div class="card_heading">
+            <i class="fa fa-line-chart" aria-hidden="true"></i>
+            Total Income
+          </div>
+          <div class="card_amount">
+            <i class="fa fa-at" aria-hidden="true"></i>
+            {{total_income}}
+  
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-4">
+        <div class="expence_summary_card">
+          <div class="card_heading">
+            <i class="fa fa-line-chart" aria-hidden="true"></i>
+            Previous Month 
+          </div>
+          <div class="card_amount">
+            <i class="fa fa-at" aria-hidden="true"></i>
+            {{one_month_total_income}}
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-4">
+        <div class="expence_summary_card">
+          <div class="card_heading">
+            <i class="fa fa-line-chart" aria-hidden="true"></i>
+            6 Months Income
+          </div>
+          <div class="card_amount">
+            <i class="fa fa-at" aria-hidden="true"></i>
+            {{six_month_total_income}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class=" row total_expence_chart">
+      <div class="col-md-4">
+        <div class="graph_box">
+          <p class="chart_header">Last Six Months Income</p>
+          <canvas id="myChart" width="200px" class="graph" height="250px" aria-level="chart" role="img">
+          </canvas>
+        </div>
+      </div>
+  
+      <div class="col-md-4">
+        <div class="graph_box">
+          <p class="chart_header">Previous Month Income</p>
+          <canvas id="oneMonthChart" width="400px" class="graph" height="340px" aria-level="chart1" role="img">
+          </canvas>
+        </div>
+      </div>
+  
+      <div class="col-md-4">
+        <div class="graph_box">
+          <p class="chart_header">All Time Income</p>
+          <!-- <canvas id="oneMonthChart" width="400px" class="graph" height="340px" aria-level="chart1" role="img"> -->
+          </canvas>
+        </div>
+      </div>
+  
+    </div>
+  
+  
+  </section>
+
+{% endblock %}

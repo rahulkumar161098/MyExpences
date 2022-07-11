@@ -1,8 +1,10 @@
 from email import message
+from threading import local
 from django.shortcuts import render, redirect
 from userincome.models import AddIncome
 from django.contrib import messages
 from django.core.paginator import Paginator
+import datetime
 
 # add income
 def income_index(request):
@@ -73,3 +75,40 @@ def del_income(request, id):
   income_del= AddIncome.objects.get(id=id)
   income_del.delete()
   return redirect ('user_income_index')
+
+def income_summary(request):
+  current_user= request.user
+  current_date= datetime.date.today()
+
+  # total income
+  total_income_query= list(AddIncome.objects.filter(owner=current_user).values_list('income_amount', flat=True))
+  # print('total income', total_income_query)
+  total_income= 0
+  for i in total_income_query:
+    total_income+=i
+
+  # one month income
+  one_month_ago= current_date - datetime.timedelta(30*1)
+  one_month_income= list(AddIncome.objects.filter(owner= current_user, date__gte=one_month_ago, date__lte=current_date).values_list('income_amount', flat=True))
+  one_month_total_income= 0
+  for i in one_month_income:
+    one_month_total_income+=i
+
+  # last six month income of source
+  six_month_ago= current_date - datetime.timedelta(30*6)
+  six_month_income= list(AddIncome.objects.filter(owner= current_user, date__gte=one_month_ago, date__lte=current_date).values_list('income_amount', flat=True))
+  six_month_total_income= 0
+  for i in six_month_income:
+    six_month_total_income+=i
+
+
+  context={
+    'total_income': total_income,
+    'one_month_total_income': one_month_total_income,
+    'six_month_total_income': six_month_total_income
+  }
+
+
+  
+  # print('totoal incoem', total_income)
+  return render(request, 'income/income_summary.html', locals())

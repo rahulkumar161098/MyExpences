@@ -1,8 +1,10 @@
 
 const json_data = one_month_json_data;
 data_key = Object.keys(json_data);
-data_value = Object.values(json_data)
-// console.log(data_key);
+data_value = Object.values(json_data);
+
+const monthly_data= one_year_monthly_data;
+console.log(monthly_data);
 
 const ctx1 = document.getElementById('oneMonthChart').getContext('2d');
 const myChart1 = new Chart(ctx1, {
@@ -25,16 +27,27 @@ const myChart1 = new Chart(ctx1, {
         // 'rgba(255, 159, 64, 1)'
       ],
       borderWidth: 1,
-      pointBackgroundColor: 'tomato'
+      pointBackgroundColor: 'tomato',
+      axis:'x'
     }]
   },
   options: {
     scales: {
       y: {
         beginAtZero: true
-      }
+      },
+      xAxes: [{
+        ticks: {
+          maxRotation: 50,
+          minRotation: 30,
+          padding: 5,
+          autoSkip: false,
+          fontSize: 12
+        }
+      }]
     },
     legend: {
+      fullSize:true,
       display: true,
       position: 'bottom',
 
@@ -44,5 +57,5 @@ const myChart1 = new Chart(ctx1, {
       }
 
     },
-  }
+  },
 });

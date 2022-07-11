@@ -91,7 +91,7 @@ font-awesome/5.15.2/css/all.min.css"/>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="{% url 'income_summary' %}">
                 Income Summar
               </a>
             </li>
@@ -157,6 +157,9 @@ font-awesome/5.15.2/css/all.min.css"/>
 
   <script>
   const one_month_json_data= {{final_one_month_summary|safe}}
+  </script>
+  <script>
+    const one_year_monthly_data= "{{one_year_data_json|safe}}"
   </script>
   <script src="../static/js/one_month_expense.js"></script>
 

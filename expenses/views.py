@@ -1,3 +1,6 @@
+
+from calendar import month
+from sqlite3 import Date
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from expenses.models import *
@@ -5,6 +8,8 @@ from django.contrib import messages
 from django.core.paginator import Paginator
 import datetime
 import json
+from django.db.models import Sum
+from django.db.models.functions.datetime import ExtractMonth, ExtractYear
 
 # Create your views here.
 def dashboard(request):
@@ -143,6 +148,40 @@ def categoty_summary_data(request):
     total_other_expenses=final_category.get('other')
     final_json=final_category
     final_one_month_summary= prevous_month_data
+
+
+    # month_summary = (AddExpence.objects
+    #           .annotate(month=month('date'))
+    #           .values('m')
+    #           .annotate(total=Sum('total'))
+    #           .order_by())
+
+    # print(month_summary)
+
+    # print([v for v in
+    #    AddExpence.objects.annotate(month=ExtractMonth('date'),)
+    #                   .order_by()
+    #                   .values('month')
+    #                   .annotate(total=Sum('amount'))
+    #                   .values('month', 'total')
+    #    ])
+    one_year_monthly_data= today_date-datetime.timedelta(30*12)
+    one_m=AddExpence.objects.filter(owner=request.user).annotate(month=ExtractMonth('date')).order_by().values('month').annotate(total=Sum('amount')).values('month', 'total')
+    def one(one_m):
+        data_mo=[]
+        for v in one_m:
+            data_mo.append(v)
+        return data_mo
+    one_year_data=(one(one_m))
+    # one_year_data_json= json.dumps(one_year_data)
+    print('............................',one_year_data)
+    # dic={}
+    # for i in one_year_data:
+    #     dic[i]
+    # print(dic)
+
+
+                      
 
     # import pdb
     # print(pdb.set_trace())

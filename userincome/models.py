@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 class AddIncome(models.Model):
     income_amount= models.FloatField()
-    date= models.DateTimeField(auto_now=True)
+    date= models.DateTimeField()
     income_desc= models.TextField()
     owner= models.ForeignKey(to=User, on_delete=models.CASCADE)
     income_source= models.CharField(max_length=255)

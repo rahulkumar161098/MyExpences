@@ -3,7 +3,8 @@
 
 {% block content %}
 <section style="margin: 10px 20px;">
-
+<h5 style="color: teal; font-weight: 650;">Your Expenses Summary</h5>
+<hr>
 
   <div class="row">
     <div class="col-md-4">
@@ -48,18 +49,26 @@
   </div>
 
   <div class=" row total_expence_chart">
-    <div class="col-md-6">
+    <div class="col-md-4">
       <div class="graph_box">
         <p class="chart_header">Last Six Months Expenses</p>
-        <canvas id="myChart" width="500px" class="graph" height="250px" aria-level="chart" role="img">
+        <canvas id="myChart" width="200px" class="graph" height="250px" aria-level="chart" role="img">
         </canvas>
       </div>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-4">
       <div class="graph_box">
         <p class="chart_header">Previous Month Expenses</p>
-        <canvas id="oneMonthChart" width="500px" class="graph" height="266px" aria-level="chart1" role="img">
+        <canvas id="oneMonthChart" width="400px" class="graph" height="340px" aria-level="chart1" role="img">
+        </canvas>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="graph_box">
+        <p class="chart_header">All Time Expenses</p>
+        <!-- <canvas id="oneMonthChart" width="400px" class="graph" height="340px" aria-level="chart1" role="img"> -->
         </canvas>
       </div>
     </div>
