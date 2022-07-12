@@ -1,0 +1,48 @@
+{% extends 'bash.html' %}
+{% load static %}
+
+{% block content %}
+ <div class="container-fluid">
+  <div class="greeting">
+    <h4>Hello {{ user.first_name | title}} {{user.last_name | title}}</h4>
+  </div>
+  <hr>
+  <div class="details">
+    <table class="table mt-5 table-bordered">
+      <tbody>
+        <tr>
+          <th scope="row">User name</th>
+          <td>{{user.username}}</td>
+        </tr>
+        <tr>
+          <th scope="row">First name</th>
+          <td>{{ user.first_name | title}}</td>
+        </tr>
+        <tr>
+          <th scope="row">Last name</th>
+          <td>{{user.last_name | title}}</td>
+        </tr>
+        <tr>
+          <th scope="row">Email address </th>
+          <td>{{user.username}}</td>
+        </tr>
+        <tr>
+          <th scope="row">Mobile no </th>
+          <td>9845687458</td>
+        </tr>
+        <tr>
+          <th scope="row">Currency prefrences </th>
+          <td>{{selected_currency.currency}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <a href="{% url 'edit_user_details' user.id %}" type="button" class="btn btn-secondary">
+      Edit Details
+    </a>
+    {{merge_query.currency}}
+
+  </div>
+
+ </div>
+
+{% endblock %}

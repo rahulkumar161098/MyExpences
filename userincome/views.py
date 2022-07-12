@@ -96,11 +96,10 @@ def income_summary(request):
 
   # last six month income of source
   six_month_ago= current_date - datetime.timedelta(30*6)
-  six_month_income= list(AddIncome.objects.filter(owner= current_user, date__gte=one_month_ago, date__lte=current_date).values_list('income_amount', flat=True))
+  six_month_income= list(AddIncome.objects.filter(owner= current_user, date__gte=six_month_ago, date__lte=current_date).values_list('income_amount', flat=True))
   six_month_total_income= 0
   for i in six_month_income:
     six_month_total_income+=i
-
 
   context={
     'total_income': total_income,
@@ -108,7 +107,4 @@ def income_summary(request):
     'six_month_total_income': six_month_total_income
   }
 
-
-  
-  # print('totoal incoem', total_income)
   return render(request, 'income/income_summary.html', locals())
