@@ -152,21 +152,20 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.7.1/dist/Chart.min.js"></script>
 
   <script>
-  const graph_data= {{ final_json|safe }};
+  const expense_graph_data= {{ final_json|safe }}
   </script>
   <script src="../static/js/expence_chart.js"></script>
-
-  <script>
-  const one_month_json_data= {{final_one_month_summary|safe}}
-  </script>
-  <script>
-    const one_year_monthly_data= "{{one_year_data_json|safe}}"
-  </script>
   <script src="../static/js/one_month_expense.js"></script>
 
-  {% block block %}
+  <script>
+    const six_month_data={{ income_list|safe }}
+  </script>
+  <script src="../static/js/income_source.js"></script>
+  <script src="../static/js/income_line_chart.js"></script>
 
-  {% endblock %}
+  <!-- {% block block %}
+
+  {% endblock %} -->
 </body>
 
 </html>

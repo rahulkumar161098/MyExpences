@@ -27,7 +27,8 @@ def preferences(request):
             json_data= json.load(json_file)
             for k,v in json_data.items():
                 currency_data.append({'key':k, 'value':v})
-            
+
+        # print(currency_data)   
         # for debugg
         # import pdb
         # pdb.set_trace()

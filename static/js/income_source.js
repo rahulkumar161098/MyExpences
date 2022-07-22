@@ -1,16 +1,15 @@
-const data1 = expense_graph_data
-// console.log(data1);
-const gr_keys= Object.keys(data1);
-const gr_values= Object.values(data1);
+const income_source_data = six_month_data
+const income_keys= Object.keys(income_source_data);
+const income_values= Object.values(income_source_data);
 
-const ctx = document.getElementById('myChart').getContext('2d');
-const myChart = new Chart(ctx, {
+const incomes = document.getElementById('incomeChart').getContext('2d');
+const incomeChart = new Chart(incomes, {
     type: 'pie',
     data: {
-        labels: gr_keys,
+        labels: income_keys,
         datasets: [{
             label: 'Your Expences',
-            data: gr_values,
+            data: income_values,
             borderColor: "rgba(0,0,0,0.1)",
             backgroundColor: [
                 'rgba(255, 99, 132)',

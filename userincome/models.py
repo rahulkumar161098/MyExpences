@@ -10,7 +10,7 @@ class AddIncome(models.Model):
     income_source= models.CharField(max_length=255)
 
     def __str__(self):
-        return self.source
+        return self.income_source
 
     # class Meta:
     #     ordering: ['-date']

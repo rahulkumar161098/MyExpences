@@ -10,7 +10,7 @@ from itertools import chain
 
 # Create your views here.
 
-
+# register user
 class RegisterView(View):
     def get(self, request):
         return render(request, 'authentication/register.html')
@@ -29,6 +29,7 @@ class RegisterView(View):
         except:
             return render(request, 'authentication/register.html')
 
+# login user
 def user_login(request):
     if request.method== 'POST':
         u_name= request.POST['username']
@@ -39,21 +40,17 @@ def user_login(request):
             return redirect('home')
         else:
             return render(request, 'authentication/login.html' )
-
-
     return render(request, 'authentication/login.html' )
 
+# logout user
 def logged_out(request):
     logout(request)
     return redirect('user_log')
 
-
-
-
 def user_dashboard(request):
     return render(request, 'bash.html')
 
-
+# edit user details
 def user_details(request):
     if not request.user.is_authenticated:
         return redirect('user_log')
@@ -61,8 +58,6 @@ def user_details(request):
     user= User.objects.all().get(username= request.user)
     selected_currency= UserPreferences.objects.get(user= request.user)
 
-    # merge_query= qs.union(selected_currency)
-    # print('merged query...........',merge_query)
     merge_query= User.objects.filter(username=request.user).values_list('username').union(UserPreferences.objects.filter(user=request.user).values_list('currency'))
     print('merged query...........',merge_query)
 

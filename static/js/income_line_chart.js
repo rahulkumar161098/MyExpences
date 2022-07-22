@@ -1,16 +1,15 @@
+const income_line_chart_data = six_month_data;
+income_data_key = Object.keys(income_line_chart_data)
+income_data_value = Object.values(income_line_chart_data);
 
-const json_data = expense_graph_data;
-data_key = Object.keys(json_data);
-data_value = Object.values(json_data);
-
-const ctx1 = document.getElementById('oneMonthChart').getContext('2d');
-const myChart1 = new Chart(ctx1, {
+const incomeLineChart = document.getElementById('income_line_chart').getContext('2d');
+const income_line_chart = new Chart(incomeLineChart, {
   type: 'line',
   data: {
-    labels: data_key,
+    labels: income_data_key,
     datasets: [{
       label: 'Per Month Expenses Data',
-      data: data_value,
+      data: income_data_value,
       backgroundColor: [
         'rgba(0, 128, 128, .3)',
 

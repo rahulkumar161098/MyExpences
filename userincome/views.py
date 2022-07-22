@@ -101,6 +101,30 @@ def income_summary(request):
   for i in six_month_income:
     six_month_total_income+=i
 
+  # track six month expenses (month wise)
+  income_list={}
+  incomes= AddIncome.objects.filter(owner=current_user, date__gte=six_month_ago, date__lte=current_date)
+
+  def source(incomes):
+    return incomes.income_source
+
+  all_incomes_list= list(set(map(source, incomes)))
+
+  def get_incomes(income_source):
+    total=0
+    get_income_source= incomes.filter(income_source=income_source)
+    for a in get_income_source:
+      total= total+a.income_amount
+    return total
+    
+  for y in all_incomes_list:
+        income_list[y] = get_incomes(y) 
+
+  # print(all_incomes_list)
+  # print(incomes)
+  # print(income_list)
+
+
   context={
     'total_income': total_income,
     'one_month_total_income': one_month_total_income,
