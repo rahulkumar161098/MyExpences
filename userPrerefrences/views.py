@@ -15,7 +15,7 @@ def preferences(request):
     print('user exist................',user_exist)
     
     if user_exist:
-        user_preference= UserPreferences.objects.get(user=request.user)
+        user_preference= UserPreferences.objects.get(user= request.user)
         print('............................', user_preference)
     # import pdb
     # pdb.set_trace()

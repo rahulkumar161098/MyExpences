@@ -1,0 +1,126 @@
+body{
+   background-color: white;
+}
+.main_section{
+   width: 100%;
+   /* border: 1px solid teal; */
+   height: 500px;
+   position: relative;
+   top: 100px;
+   background-color: rgba(0, 128, 128, 0.87);
+   background-image: url(../media/pexels-suzy-hazelwood-1995842.jpg);
+   background-attachment: fixed;
+   background-size: contain;
+   
+}
+.main_card{
+   width: 90%;
+   /* border: 1px solid teal; */
+   height: auto;
+   position: absolute;
+   z-index: 9999;
+   top: -50px;
+   left: 5%;
+   border-radius: 10px;
+   background-color: white;
+   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+   /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; */
+}
+.text_right{
+   display: flex !important;
+   justify-content: end !important;
+   margin-right: 80px;
+}
+.logo{
+   /* border: 1px solid red; */
+   border-radius: 50%;
+   width: 50px;
+   height: 50px;
+}
+.logo img{
+
+   height: 50px;
+   width: 100%;
+   border-radius: 50%;
+   position: relative;
+   top: -6px;
+   background-size: contain;
+   /* object-fit: none; */
+   /* position: absolute;
+   top: -50px;
+   left: -60px; */
+}
+.btn_area{
+   background-image: url(../media/pexels-evie-shaffer-4004374.jpg);
+   /* background-attachment: fixed; */
+   background-size: cover;
+   height: 400px;
+   padding: 0px;
+   position: relative;
+   border-radius: 0px 10px 10px 0px;
+}
+.heading_text{
+   width: 100%;
+   height: 200px;
+   /* border: 1px solid red; */
+   position: absolute;
+   left: -1%;
+   border-radius: 10%;
+   top: 20px;
+   padding: 5px 10px;
+   color: white;
+   text-align: center;
+}
+.home_btn{
+   position: absolute;
+   top: 70%;
+   /* border: 1px solid red; */
+   width: 100%;
+}
+
+.btns{
+   position: absolute;
+   top: 65%;
+   /* border: 1px solid white; */
+   width: 100%;
+   height: 115px;
+}
+
+.auth_btn{
+   width: 80%;
+    /* border: 1px solid white; */
+    text-align: center;
+    margin-left: 10%;
+    margin-top: 10px;
+    height: 40px;
+    line-height: 40px;
+    background-color: teal;
+    color: white;
+    border-radius: 10px;
+}
+
+.auth_btn a{
+   color: white;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-decoration: none;
+    padding: 0% 40%;
+}
+p{
+   font-size: 30px;
+   font-weight: 700;
+   letter-spacing: 2px;
+}
+.text_quotation{
+   font-size: 19px;
+   color: red;
+   font-weight: 1000;
+   padding: 5px;
+}
+
+.avtar{
+   width: 100%;
+   height: 400px;
+   padding: 10px;
+}
