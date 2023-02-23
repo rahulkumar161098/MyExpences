@@ -1,0 +1,28 @@
+.container-fluid {
+   padding-left: 0px;
+   margin-right: auto;
+   /* height: 100Vh !important;
+   height: 100Vh !important; */
+   /* display: flex;
+   justify-content: center; */
+   /* background-image: url(../static/media/dalmatian-spots.svg); */
+   /* background-size: cover; */
+}
+
+.container {
+   background-color: rgba(165, 165, 165, 0.315);
+   padding: 20px 15px;
+}
+
+.page_heading {
+   text-align: center;
+   font-size: 30px;
+   font-weight: 900;
+   letter-spacing: 2px;
+   padding-bottom: 15px;
+}
+.service_text p{
+   font-size: 16px;
+   font-weight: 400;
+    letter-spacing: 0px;
+}

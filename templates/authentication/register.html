@@ -1,10 +1,14 @@
-{% extends 'authentication/auth_base.html' %}
+{% extends 'home.html' %}
 
 {% block style %}
      <link rel="stylesheet" href="../../static/css/auth_style/register.css">
 {% endblock %}
 
-{% block main %}
+{% block home %}
+
+<div class="container-fluid">
+
+
 
 {% if messages %}
 <div class="alert alert-warning" role="alert">
@@ -117,4 +121,5 @@
     }
 </script>
 
+</div>
 {% endblock %}

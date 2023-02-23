@@ -20,7 +20,7 @@ from expenses import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('expenses_auth/', include('account.urls')),
+    path('', include('account.urls')),
     path('expenses/', include('expenses.urls')),
     path('preference/', include('userPrerefrences.urls')),
     path('income/', include('userincome.urls')),

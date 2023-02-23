@@ -77,4 +77,16 @@ def edit_user_details(request, id):
     print(currency)
     return render(request, 'profile/user_detail_edit.html', locals())
 
+def user_service(request):
+    return render(request, 'service.html')
+
+def about(request):
+    return render(request, 'about.html')
+
+def contact(request):
+    return render(request, 'contact.html')
+
+def index_page(request):
+    return render(request, 'index.html')
+
     

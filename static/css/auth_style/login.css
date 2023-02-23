@@ -1,13 +1,22 @@
+.container-fluid{
+    height: 100Vh !important;
+    height: 100Vh !important;
+    display: flex;
+    justify-content: center;
+    background-image: url(../../media/dalmatian-spots.svg);
+    background-size: cover;
+}
 .contain{
     width: 350px;
     height: 300px;
     padding: 15px 15px;
     border: 2px solid rgba(1, 75, 75, .6);
     border-top: none;
-    margin: 0 auto;
-    margin-top: 60px;
+    position: absolute;
+    top: 20%;
     border-radius: 10px;
     box-shadow: black(10px);
+    /* background-image: url(../../media/confetti-doodles.svg); */
     /* text-align: center; */
     box-shadow: rgba(1, 75, 75, 0.4) -5px 5px, rgba(1, 75, 75, 0.3) -10px 10px, rgba(1, 75, 75, 0.2) -15px 15px, rgba(1, 75, 75, 0.1) -20px 20px, rgba(1, 75, 75, 0.05) -25px 25px;
 }
@@ -63,4 +72,11 @@ label{
 span{
     color: tomato;
     font-size: 13px;
+}
+.user_field .errors{
+    color: tomato;
+    font-size: 13px;
+    position: relative;
+    top: -10px;
+    background-color: errors;
 }

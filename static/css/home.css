@@ -1,6 +1,10 @@
 body{
    background-color: white;
 }
+.navbar-nav a{
+   color: white !important;
+   font-weight: 600;
+}
 .main_section{
    width: 100%;
    /* border: 1px solid teal; */
