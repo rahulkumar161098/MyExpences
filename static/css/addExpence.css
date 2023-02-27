@@ -49,3 +49,17 @@
     /* margin-top: 0px 0px 5px 0px; */
     margin-top: -10px;
 }
+.search_btn{
+    padding: 5px 10px;
+    color: white;
+    background-color: rgb(9, 92, 9);
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-top: 2px;
+} 
+.search_option{
+    margin-bottom: 10px;
+}

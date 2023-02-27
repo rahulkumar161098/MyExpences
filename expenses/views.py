@@ -10,6 +10,7 @@ import datetime
 import json
 from django.db.models import Sum
 from django.db.models.functions.datetime import ExtractMonth, ExtractYear
+from django.db.models import Q
 
 # Create your views here.
 def dashboard(request):
@@ -28,10 +29,10 @@ def addExpence(request):
     value_data= AddExpence.objects.values()
     # print(value_data)
 
-    paginator= Paginator(expence_data, 5)
+    paginator= Paginator(expence_data, 8)
     page_number= request.GET.get('page')
     page_obj = Paginator.get_page(paginator, page_number)
-    print(page_obj)
+    # print(page_obj)
     context={
         'expence_user_data': expence_data,
         'page_obj': page_obj
@@ -192,4 +193,14 @@ def categoty_summary_data(request):
     }
 
     return render(request, 'expenses/summary.html', locals() )
+
+def search(request):
+    search_result=[]
+    if request.method=='GET':
+        query= request.GET.get('search')
+        if query=='':
+            query=None
+        search_result= AddExpence.objects.filter(Q(amount__icontains=query) | Q(category__icontains=query))
+        # print('-------------------',search_result)
+    return render(request, 'expense_search.html',{'query': query, 'result': search_result})
     

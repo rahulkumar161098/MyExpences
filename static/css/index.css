@@ -1,0 +1,98 @@
+.main_section{
+   background-image: url(../media/pexels-evie-shaffer-4004374.jpg);
+   height: 100vh;
+   background-size: cover;
+   opacity: 0.9;
+}
+.main_sub_section{
+   width: 60%;
+   position: absolute;
+   top: 40%;
+   /* background: none; */
+   left: 20%;
+   /* border: 1px solid white; */
+   height: auto;
+}
+.main_section_heading{
+   font-size: 35px;
+   color: white;
+   font-weight: 700;
+   text-align: center;
+   letter-spacing: 1px;
+}
+.app_name{
+   font-size: 45px;
+   color: teal;
+   font-weight: 1000;
+   letter-spacing: 2px;
+   margin-left: 5px;
+}
+.heading_sub_text{
+   font-size: 16px;
+   font-weight: 400;
+   width: 80%;
+   margin: auto;
+}
+.auth_btn{
+   /* margin-top: 30px; */
+   /* width: 100%; */
+   /* border: 1px solid red; */
+   margin: 35px 0px 0px 0px;
+   
+}
+.auth_btns{
+   font-size: 20px;
+   margin-top: 10px;
+   
+}
+.auth_btns a{
+   font-size: 20px;
+   /* border: 1px solid white; */
+   color: white;
+   width: 80%;
+   height: 40px;
+   line-height: 40px;
+   border-radius: 20px;
+   background-color: teal;
+   text-decoration: none;
+}
+.auth_btns a:hover{
+   color: white;
+   background-color: rgb(0, 85, 85);
+}
+.avtar{
+   position: absolute;
+   right: 0%;
+   top: 80vh;
+   width: 20%;
+   height: 30vh;
+   /* border: 1px solid white; */
+   background-size: cover;
+}
+.avtar img{
+   width: 100%;
+   height: 100%;
+   background-size: cover;
+}
+
+@media only screen and (max-width: 500px) {
+
+   .main_sub_section{
+      width: 90%;
+      position: absolute;
+      left: 5%;
+   }
+   .heading_sub_text{
+      font-size: 16px;
+      font-weight: 400;
+      width: 90%;
+      margin: auto;
+      padding-top: 15px;
+   }
+   .avtar{
+      position: absolute;
+      right: 0%;
+      bottom: 0%;
+
+   }
+ }

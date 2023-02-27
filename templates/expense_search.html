@@ -1,0 +1,83 @@
+{% extends 'bash.html' %}
+
+{% block content %}
+
+<div class="row">
+
+   {% if messages %}
+   <ul class="messages">
+      {% for message in messages %}
+      <div class="alert alert-success alert-dismissible fade show message" role="alert">
+         {% if message.tags %}
+         {{ message }}
+         {% endif %}
+         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+         </button>
+      </div>
+      {% endfor %}
+   </ul>
+   {% endif %}
+
+
+
+
+
+   <div class="all_expences">
+      <div class="row">
+         <h6 class="col-md-8">Searched Expences</h6>
+         <!-- <div class="col-md-4">
+            <form method="POST">
+                {% csrf_token %}
+                <input type="search" class="search_area" name="search_input">
+                <input type="submit" class="search_btn" value="Search" ></inpu>
+            </form>
+        </div> -->
+      </div>
+
+      {% if result.count %}
+
+      <table class="table">
+         <thead class="thead-dark">
+            <tr>
+               <!-- <th scope="col">S.no</th> -->
+               <th scope="col">Amount</th>
+               <th scope="col">Category</th>
+               <th>Description</th>
+               <th scope="col">Date</th>
+               <th scope="col">Action</th>
+            </tr>
+         </thead>
+         <tbody>
+            {% for data in result %}
+            <tr>
+               <!-- <th scope="row">{{ forloop.counter }}</th> -->
+               <td>{{ data.amount }}</td>
+               <td>{{ data.category }}</td>
+               <td>{{ data.description }}</td>
+               <td>{{ data.date }}</td>
+
+               <td>
+                  <a href="{% url 'edit_expense' data.id %}">Edit</a>
+                  <!-- <a href="{% url 'delete_expense' data.id %}" onclick="return confirm ('Are you sure?')"" > delete</a> -->
+               </td>
+            </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+      {% endif %}
+
+      {% if not result.count %}
+      <p style="font-size: 25px;
+      text-align: center;
+      color: gray; font-weight: 500;">
+         No result founds
+         <p style="text-align: center;
+         font-size: 20px;" >Back to <a href="{% url 'add_expences' %}">home</a></p>
+      </p>
+      {% endif %}
+   </div>
+
+
+
+   {% endblock %}

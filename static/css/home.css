@@ -4,32 +4,14 @@ body{
 .navbar-nav a{
    color: white !important;
    font-weight: 600;
+   margin-left:10px;
 }
-.main_section{
-   width: 100%;
-   /* border: 1px solid teal; */
-   height: 500px;
-   position: relative;
-   top: 100px;
-   background-color: rgba(0, 128, 128, 0.87);
-   background-image: url(../media/pexels-suzy-hazelwood-1995842.jpg);
-   background-attachment: fixed;
-   background-size: contain;
-   
+.navbar-nav a:hover{
+   color: rgb(224, 224, 224) !important;
+   font-weight: 600;
 }
-.main_card{
-   width: 90%;
-   /* border: 1px solid teal; */
-   height: auto;
-   position: absolute;
-   z-index: 9999;
-   top: -50px;
-   left: 5%;
-   border-radius: 10px;
-   background-color: white;
-   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-   /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; */
-}
+
+
 .text_right{
    display: flex !important;
    justify-content: end !important;
@@ -49,82 +31,86 @@ body{
    position: relative;
    top: -6px;
    background-size: contain;
-   /* object-fit: none; */
-   /* position: absolute;
-   top: -50px;
-   left: -60px; */
 }
-.btn_area{
-   background-image: url(../media/pexels-evie-shaffer-4004374.jpg);
-   /* background-attachment: fixed; */
-   background-size: cover;
-   height: 400px;
-   padding: 0px;
-   position: relative;
-   border-radius: 0px 10px 10px 0px;
-}
-.heading_text{
+
+footer{
    width: 100%;
-   height: 200px;
+   height: 240px;
    /* border: 1px solid red; */
-   position: absolute;
-   left: -1%;
-   border-radius: 10%;
-   top: 20px;
-   padding: 5px 10px;
-   color: white;
    text-align: center;
-}
-.home_btn{
-   position: absolute;
-   top: 70%;
-   /* border: 1px solid red; */
-   width: 100%;
-}
-
-.btns{
-   position: absolute;
-   top: 65%;
-   /* border: 1px solid white; */
-   width: 100%;
-   height: 115px;
-}
-
-.auth_btn{
-   width: 80%;
-    /* border: 1px solid white; */
-    text-align: center;
-    margin-left: 10%;
-    margin-top: 10px;
-    height: 40px;
-    line-height: 40px;
-    background-color: teal;
-    color: white;
-    border-radius: 10px;
-}
-
-.auth_btn a{
+   padding: 10px 20px;
+   background-color: #1d2124;
    color: white;
-    font-size: 20px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-decoration: none;
-    padding: 0% 40%;
 }
-p{
-   font-size: 30px;
-   font-weight: 700;
-   letter-spacing: 2px;
-}
-.text_quotation{
-   font-size: 19px;
-   color: red;
-   font-weight: 1000;
-   padding: 5px;
+.footer_heading{
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   margin-bottom: 14px;
+   /* border-bottom: 2px solid lightgray; */
+   /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
+   /* box-shadow: rgba(145, 145, 145, 0.795) 0px 3px 3px; */
+   box-shadow: rgba(163, 163, 163, 0.1) 0px 2px 1px;
 }
 
-.avtar{
-   width: 100%;
-   height: 400px;
-   padding: 10px;
+.footer_heading h2{
+   
+   width: max-content;
+   padding: 10px 30px;
+   letter-spacing: 1px;
+   font-weight: 600;
+   color: rgb(190, 190, 190);
 }
+
+/* .footer_section{
+   padding-bottom: 15px;
+   border-bottom: 2px solid rgb(117, 117, 117);
+   box-shadow: rgba(17, 17, 26, 0.1) 0px 2px 1px;
+} */
+.footer_section h4{
+   font-size: 25px;
+   font-weight: 500;
+   letter-spacing: 1px;
+}
+
+.footer_section i{
+   font-size: 30px;
+   margin: 0px 10px;
+   font-weight: bolder;  
+}
+
+.footer_section a{
+   text-decoration: none;
+   color: white;
+}
+
+.footer_section .links a{
+   font-size: 20px;
+   padding: 0px 10px;
+
+}
+
+.instagram{
+   background: -webkit-linear-gradient(#feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.facebook{
+   background: -webkit-linear-gradient(#3b5998, #3b5998);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.twitter{
+   background: -webkit-linear-gradient(#00acee, #00acee);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+
+
+
+
+

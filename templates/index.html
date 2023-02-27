@@ -1,37 +1,35 @@
 {% extends 'home.html' %}
-{% load static %}
+{% block style %}
+<link rel="stylesheet" href="../static/css/index.css">
+{% endblock %}
+
 {% block home %}
 <section class="main_section">
-   <div class="main_card">
-      <div class="row">
-         <div class="col-sm-6">
-            <img class="avtar" src="../static/media/1676687387business-person-taking-an-ok-pose-svgrepo-com.svg" alt=""
-               srcset="">
-         </div>
-         <div class="col-sm-6 btn_area">
-            <div class="heading_text">
-               <p>Track Your Expenses</p>
-               <span><span class="text_quotation">&#8220</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Suscipit nihil aut nulla iure, atque nemo error labore illum, minima perferendis itaque earum, quidem
-                  a sed aliquam voluptatibus laudantium voluptate consequatur, minima perferendis itaque earum, quidem a
-                  sed aliquam voluptatibus laudantium voluptate consequatur<span
-                     class="text_quotation">&#8221</span></span>
+   <div class="main_sub_section">
+      <div class="main_section_heading">
+         Welcome To My Website <span class="app_name">Expenses</span>
+         <p class="heading_sub_text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium ratione illo
+            velit obcaecati necessitatibus ab magni nemo.
+         </p>
+         <div class="row auth_btn">
+            <div class="col-md-6 auth_btns">
+               <a type="button" href="{% url 'register' %}">Register</a>
             </div>
-
-            <div class="btns">
-               <div class="auth_btn">
-                  <a type="button" href="{% url 'register' %}">Register</a>
-               </div>
-               <div class="auth_btn">
-                  <a type="button" href="{% url 'user_log' %}">Login</a>
-               </div>
-
+            <div class="col-md-6 auth_btns">
+               <a type="button" href="{% url 'user_log' %}">Login</a>
             </div>
-
          </div>
       </div>
-
    </div>
-
+   <div class="avtar">
+      <img src="../static/media/1676687387business-person-taking-an-ok-pose-svgrepo-com.svg" alt="">
+   </div>
 </section>
 {% endblock %}
+<!-- <div class="auth_btn">
+   <a type="button" href="{% url 'register' %}">Register</a>
+</div>
+<div class="auth_btn">
+   <a type="button" href="{% url 'user_log' %}">Login</a>
+</div> -->

@@ -19,14 +19,12 @@
     </ul>
     {% endif %}
 
-
-
     <!-- Button trigger modal -->
     <div class="col-md-10">
         <nav aria-label="breadcrumb" class="nav_navigarion">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Expence</a></li>
-                <li class="breadcrumb-item">My Expence</< /li>
+                <li class="breadcrumb-item">My Expence</li>
             </ol>
         </nav>
     </div>
@@ -35,8 +33,22 @@
             Add Expences
         </button>
     </div>
-    <hr>
 </div>
+
+<div>
+    <div class="row">
+        <form action="{% url 'search' %}">
+            <div class="col-md-10">
+                <input type="text" name="search" class="form-control" placeholder="Search">
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="search_btn">Search</button>
+            </div>
+        </form>
+    </div>
+</div>
+<hr>
+
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
