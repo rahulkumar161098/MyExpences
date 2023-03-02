@@ -1,28 +1,18 @@
 {% extends 'home.html' %}
 
 {% block title %}
-    Expenses-Login
+Expenses-Login
 {% endblock %}
 
 {% block style %}
-    <link rel="stylesheet" href="../../static/css/auth_style/login.css">
+<link rel="stylesheet" href="../../static/css/auth_style/login.css">
 {% endblock %}
 
 {% block home %}
 <div class="container-fluid">
-    {% if messages %}
-    <div class="alert alert-warning" role="alert">
-        {% for message in messages %}
-        {{ message }}
-        {% endfor %}
-    </div>
-    {% endif %}
-
     <!-- <div class="alert alert-info" role="alert">
     This is a info alert—check it out!
   </div> -->
-
-
 
     <div class="contain" style="height: max-content;">
         <form action="" method="post" onsubmit="return onSubmitForm()">
@@ -38,6 +28,17 @@
                 <label for="name">Password</label>
                 <input type="password" name="password" class="user_input" id="user_password">
                 <span id="password_error"></span>
+            </div>
+            <div class="error_msg">
+                {% if messages %}
+                <div style="color: tomato;
+                letter-spacing: 1px;
+                font-weight: 600;">
+                    {% for message in messages %}
+                    {{ message }}
+                    {% endfor %}
+                </div>
+                {% endif %}
             </div>
             <div class="some_link" style="margin-top: 10px;">
                 <a href="{% url 'register' %}">create an account</a>

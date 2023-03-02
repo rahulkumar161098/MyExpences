@@ -7,6 +7,8 @@ from userPrerefrences.models import UserPreferences
 from django.core.mail import EmailMessage
 from django.contrib.auth import authenticate, login, logout
 from itertools import chain
+from django.contrib.messages import constants as messages
+from django.contrib import messages
 
 # Create your views here.
 
@@ -39,6 +41,7 @@ def user_login(request):
             login(request, user)
             return redirect('home')
         else:
+            messages.error(request, 'Imvalid Email Id/Password')
             return render(request, 'authentication/login.html' )
     return render(request, 'authentication/login.html' )
 

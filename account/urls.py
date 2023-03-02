@@ -16,3 +16,5 @@ urlpatterns = [
     path('', views.index_page, name="index_page")
     # path('userlog', views.index, name='userlog')
 ]
+
+    
