@@ -10,10 +10,6 @@ Expenses-Login
 
 {% block home %}
 <div class="container-fluid">
-    <!-- <div class="alert alert-info" role="alert">
-    This is a info alert—check it out!
-  </div> -->
-
     <div class="contain" style="height: max-content;">
         <form action="" method="post" onsubmit="return onSubmitForm()">
             {% csrf_token %}
@@ -31,9 +27,7 @@ Expenses-Login
             </div>
             <div class="error_msg">
                 {% if messages %}
-                <div style="color: tomato;
-                letter-spacing: 1px;
-                font-weight: 600;">
+                <div style="color: tomato;letter-spacing: 1px;font-weight: 600;">
                     {% for message in messages %}
                     {{ message }}
                     {% endfor %}

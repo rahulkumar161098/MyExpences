@@ -2,13 +2,15 @@ from locale import currency
 from django.shortcuts import render, redirect, HttpResponse
 from django.views import View
 from django.contrib.auth.models import User
+from expenses.models import AddExpence
 from userPrerefrences.models import UserPreferences
 # from django.core.mail import send_mail
 from django.core.mail import EmailMessage
 from django.contrib.auth import authenticate, login, logout
 from itertools import chain
-from django.contrib.messages import constants as messages
+# from django.contrib.messages import constants as messages
 from django.contrib import messages
+from django.core.paginator import Paginator
 
 # Create your views here.
 
@@ -51,7 +53,23 @@ def logged_out(request):
     return redirect('user_log')
 
 def user_dashboard(request):
-    return render(request, 'bash.html')
+    if request.user.is_authenticated:
+        current_user= request.user
+        expence_data= AddExpence.objects.filter(owner=current_user).order_by('-date')
+        datalen=len(expence_data)
+        print(expence_data)
+        paginator= Paginator(expence_data, 8)
+        page_number= request.GET.get('page')
+        page_obj = Paginator.get_page(paginator, page_number)
+        # print(page_obj)
+        context={
+        'expence_user_data' : expence_data,
+        'page_obj' : page_obj,
+        'datalen' : datalen
+        }
+        return render(request, 'addExpences.html', context)
+    else:
+        return redirect('/login')
 
 # edit user details
 def user_details(request):

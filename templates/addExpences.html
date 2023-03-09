@@ -47,7 +47,7 @@
         </form>
     </div>
 </div>
-<hr>
+<hr style="color: teal;">
 
 
 <!-- Modal -->
@@ -96,7 +96,7 @@
         </div>
     </div>
 </div>
-
+{% if expence_user_data.count %}
 <div class="all_expences">
     <div class="row">
         <h6 class="col-md-8">All Expences</h6>
@@ -109,9 +109,7 @@
         </div> -->
     </div>
 
-    {% if expence_user_data.count %}
-
-    <table class="table">
+    <table  class="table">
         <thead class="thead-dark">
             <tr>
                 <!-- <th scope="col">S.no</th> -->
@@ -123,6 +121,7 @@
             </tr>
         </thead>
         <tbody>
+            <!-- <h3>{{datalen}}</h3> -->
             {% for data in page_obj %}
             <tr>
                 <!-- <th scope="row">{{ forloop.counter }}</th> -->
@@ -139,7 +138,7 @@
             {% endfor %}
         </tbody>
     </table>
-    {% endif %}
+    
 </div>
 
 <div class="paginator" style="display: flex; justify-content: space-between;">
@@ -168,5 +167,14 @@
         </div>
     </div>
 </div>
+
+{% else %}
+<div style="font-size: 20px; color: #7e7d7d; text-align: center;">
+    Expences are not added! Go to Add Expences  
+</div>
+
+{% endif %}
+
+
 
 {% endblock %}
